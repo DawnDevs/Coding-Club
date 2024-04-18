@@ -16,6 +16,24 @@
     background-position: 0% 50%;
   }
 }
+.gradient-container1 {
+  /* width: 100vw; */
+  background: linear-gradient(-45deg, #5ff1a8, #7cd7aa, #ffffff, #7cd7aa, #5ff1a8);
+  /* background-size: 400% 400%; */
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .bricolage-font {
   font-family: "Bricolage Grotesque";

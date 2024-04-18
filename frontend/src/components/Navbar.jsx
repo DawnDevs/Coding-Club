@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginPic from '../assets/login.png'
+
+
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
 
@@ -17,7 +19,7 @@ const Navbar = () => {
             src={NavLogo}
             alt=""
           /> */}
-          <p>JFC Coding Club</p>
+          <p>Anonymous</p>
         </Link>
         <ul className="hidden md:flex justify-center font-medium text-base space-x-6 ">
           <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
@@ -41,7 +43,7 @@ const Navbar = () => {
               activeClassName="active"
               onMouseEnter={() => handleMenuClick("about")}
             >
-              About
+              Resources
             </Link>
           </li>
           <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
@@ -65,7 +67,7 @@ const Navbar = () => {
               activeClassName="active"
               onMouseEnter={() => handleMenuClick("contact")}
             >
-              Team
+              Updates
             </Link>
           </li>
         </ul>
