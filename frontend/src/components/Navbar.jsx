@@ -41,7 +41,7 @@ const Navbar = () => {
                 "px-2 `menu-item`"
               }
               activeClassName="active"
-              onMouseEnter={() => handleMenuClick("about")}
+              onMouseEnter={() => handleMenuClick("resources")}
             >
               Resources
             </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
                 "px-2 `menu-item`"
               }
               activeClassName="active"
-              onMouseEnter={() => handleMenuClick("web3")}
+              onMouseEnter={() => handleMenuClick("dashboard")}
             >
               Dashboard
             </Link>
@@ -65,14 +65,13 @@ const Navbar = () => {
                 "px-2 `menu-item`"
               }
               activeClassName="active"
-              onMouseEnter={() => handleMenuClick("contact")}
+              onMouseEnter={() => handleMenuClick("updates")}
             >
               Updates
             </Link>
           </li>
         </ul>
         <div className=" hover:cursor-pointer transition-transform hover:scale-95 ">
-            {/* <img src={LoginPic} className=" h-12" alt="" /> */}
             <p className=" border-2 border-gray-900 shadow-lg p-2 px-4 rounded-full w-fit font-semibold bg-gradient-to-tr from-green-400 to-green-100 hover:from-green-100 hover:to-green-400">Sign up 🡥</p>
         </div>
       </div>
