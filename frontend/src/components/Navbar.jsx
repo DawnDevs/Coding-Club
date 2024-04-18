@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-transparent border border-gray-900 mx-1 md:mx-10 lg:mx-32 flex-wrap shadow-xl bricolage-font">
+    <div className="bg-transparent rounded-full border border-gray-900 mx-1 md:mx-10 lg:mx-32 flex-wrap shadow-xl bricolage-font">
       <div className="flex items-center p-4 mx-3 text-gray-900 text-xl justify-between">
         <Link to="/">
           {/* <img
@@ -48,7 +48,7 @@ const Navbar = () => {
           </li>
           <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
             <Link
-              to="/track"
+              to="/dashboard"
               className={
                 "px-2 `menu-item`"
               }
@@ -60,7 +60,7 @@ const Navbar = () => {
           </li>
           <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
             <Link
-              to="/track"
+              to="/updates"
               className={
                 "px-2 `menu-item`"
               }
@@ -73,7 +73,7 @@ const Navbar = () => {
         </ul>
         <div className=" hover:cursor-pointer transition-transform hover:scale-95 ">
             {/* <img src={LoginPic} className=" h-12" alt="" /> */}
-            <p className=" border-2 border-gray-900 shadow-lg p-2 px-4 w-fit font-semibold bg-gradient-to-tr from-green-400 to-green-100 hover:from-green-100 hover:to-green-400">Sign up 🡥</p>
+            <p className=" border-2 border-gray-900 shadow-lg p-2 px-4 rounded-full w-fit font-semibold bg-gradient-to-tr from-green-400 to-green-100 hover:from-green-100 hover:to-green-400">Sign up 🡥</p>
         </div>
       </div>
     </div>
