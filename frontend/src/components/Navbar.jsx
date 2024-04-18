@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import LoginPic from '../assets/login.png'
-
+import JFC from '../assets/jfc.png'
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -13,13 +12,13 @@ const Navbar = () => {
   return (
     <div className="bg-transparent rounded-full border border-gray-900 mx-1 md:mx-10 lg:mx-32 flex-wrap shadow-xl bricolage-font">
       <div className="flex items-center p-4 mx-3 text-gray-900 text-xl justify-between">
-        <Link to="/">
-          {/* <img
+        <Link className=" flex items-center" to="/">
+          <img
             className=" h-12 hover:scale-95 hover:cursor-pointer"
-            src={NavLogo}
+            src={JFC}
             alt=""
-          /> */}
-          <p>Anonymous</p>
+          />
+          <p className=" text-xl font-semibold">Coding Club</p>
         </Link>
         <ul className="hidden md:flex justify-center font-medium text-base space-x-6 ">
           <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
@@ -72,7 +71,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className=" hover:cursor-pointer transition-transform hover:scale-95 ">
-            <p className=" border-2 border-gray-900 shadow-lg p-2 px-4 rounded-full w-fit font-semibold bg-gradient-to-tr from-green-400 to-green-100 hover:from-green-100 hover:to-green-400">Sign up 🡥</p>
+            <p className=" border-2 border-gray-900 shadow-lg p-2 px-4 rounded-full w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400">Sign up 🡥</p>
         </div>
       </div>
     </div>

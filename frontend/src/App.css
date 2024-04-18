@@ -1,6 +1,6 @@
 .gradient-container {
   width: 100vw;
-  background: linear-gradient(-45deg, #22b96e, #7cd7aa, #ffffff, #7cd7aa, #22b96e);
+  background: linear-gradient(-45deg, #00ddff, #87efff, #ffffff, #87efff, #00ddff);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
 }
@@ -18,7 +18,7 @@
 }
 .gradient-container1 {
   /* width: 100vw; */
-  background: linear-gradient(-45deg, #5ff1a8, #7cd7aa, #ffffff, #7cd7aa, #5ff1a8);
+  background: linear-gradient(-45deg, #00ddff, #87efff, #ffffff, #87efff, #00ddff);
   /* background-size: 400% 400%; */
   animation: gradientAnimation 15s ease infinite;
 }
