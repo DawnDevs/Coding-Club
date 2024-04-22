@@ -16,7 +16,7 @@ const Home = () => {
             </div>
             <div className=" pt-6 md:pt-0 items-center">
               <div className=" gradient-container1 rounded-lg shadow-xl">
-                <p className=" text-2xl md:text-4xl font-semibold flex justify-center p-4"> ⪻JFC Coding Club /⪼</p>
+                <p className=" text-2xl md:text-4xl font-semibold flex justify-center p-4"> ⪻Anonymous /⪼</p>
               </div>
               <p className=" pt-6 text-center text-xl">We're a dynamic tech club offering coding classes that dive deep into the latest and greatest in the world of technology!</p>
               <div className=" flex justify-center pt-10 text-base md:text-xl font-semibold space-x-10">
@@ -25,8 +25,8 @@ const Home = () => {
               </div>
             </div>
         </div>
-        <div className="absolute pb-10 bottom-0 hover:cursor-pointer right-0">
-          <a className=" hover:pl-6" href=" https://chat.whatsapp.com/HSxFI66MnrJ6K6GGkDppV8" target="_blank"><img className="h-12 md:h-16 bg-green-500 hover:bg-green-600 p-2 rounded-l-2xl" src={Whatsapp} alt="" /></a>
+        <div className="absolute pb-10 bottom-0 hover:cursor-pointer animate-pulse right-0">
+          <a className=" hover:pl-6" href=" https://chat.whatsapp.com/HSxFI66MnrJ6K6GGkDppV8" target="_blank"><img className="h-12 md:h-16 bg-green-500 hover:bg-green-600 hover:pr-6 p-2 rounded-l-2xl" src={Whatsapp} alt="" /></a>
         </div>
       </div>
     </div>

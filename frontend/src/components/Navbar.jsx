@@ -18,7 +18,7 @@ const Navbar = () => {
             src={JFC}
             alt=""
           />
-          <p className=" text-xl font-semibold">Coding Club</p>
+          <p className=" text-xl font-semibold">Anonymous</p>
         </Link>
         <ul className="hidden md:flex justify-center font-medium text-base space-x-6 ">
           <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
