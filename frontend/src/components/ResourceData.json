@@ -16,5 +16,41 @@
     "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "author": "Jane Smith",
     "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQedJzXkHWA0geXf3avTHWzMP0gE_c8tC6uMnq3mVRG323CNeYZz8FM2lAZMnW1QEKiPI8&usqp=CAU"
+  },
+  {
+    "title": "Sample Title 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "link": "https://google.com",
+    "imageUrl": "https://i.pinimg.com/originals/ea/92/2c/ea922c8f68d581c3124882e3a9aca6bb.jpg"
+  },
+  {
+    "title": "Sample Title 2",
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "author": "Jane Smith",
+    "imageUrl": "https://img.lovepik.com/background/20211021/large/lovepik-simple-technology-background-image_401491786.jpg"
+  },
+  {
+    "title": "Sample Title 2",
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "author": "Jane Smith",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQedJzXkHWA0geXf3avTHWzMP0gE_c8tC6uMnq3mVRG323CNeYZz8FM2lAZMnW1QEKiPI8&usqp=CAU"
+  },
+  {
+    "title": "Sample Title 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "link": "https://google.com",
+    "imageUrl": "https://i.pinimg.com/originals/ea/92/2c/ea922c8f68d581c3124882e3a9aca6bb.jpg"
+  },
+  {
+    "title": "Sample Title 2",
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "author": "Jane Smith",
+    "imageUrl": "https://img.lovepik.com/background/20211021/large/lovepik-simple-technology-background-image_401491786.jpg"
+  },
+  {
+    "title": "Sample Title 2",
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "author": "Jane Smith",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQedJzXkHWA0geXf3avTHWzMP0gE_c8tC6uMnq3mVRG323CNeYZz8FM2lAZMnW1QEKiPI8&usqp=CAU"
   }
 ]
