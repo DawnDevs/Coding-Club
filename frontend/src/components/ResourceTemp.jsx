@@ -13,7 +13,7 @@ const CardTemplate = ({ data }) => {
         />
         </div>
         <div className="card-body">
-          <h5 className="card-title font-semibold text-xl pt-2 flex justify-center">{data.title}</h5>
+          <p className="card-title font-semibold text-xl pt-2 flex justify-center">{data.title}</p>
           <p className="card-text flex justify-center">{data.description}</p>
           <div className=" flex justify-center pt-2">
           <a href={data.link} target="_blank" className="card-text flex justify-center border-2 border-gray-900 bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400 w-fit rounded-lg p-2 px-3 text-lg">Download</a>
