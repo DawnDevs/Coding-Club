@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import JFC from '../assets/jfc.png'
+import Connect from "./Connect";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu === activeMenu ? null : menu);
@@ -71,7 +73,10 @@ const Navbar = () => {
           </li>
         </ul>
         <div className=" hover:cursor-pointer transition-transform hover:scale-95 ">
-            <p className=" border-2 border-gray-900 shadow-lg p-2 px-4 rounded-full w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400">Sign up 🡥</p>
+          <Link activeClassName="active"
+              onMouseEnter={() => handleMenuClick("signup")}>
+            <Connect setUserEmail={setUserEmail} className=" border-2 border-gray-900 shadow-lg p-2 px-4 rounded-full w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400">Sign up 🡥</Connect>
+          </Link>
         </div>
       </div>
     </div>

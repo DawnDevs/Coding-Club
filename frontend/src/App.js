@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Resources from './pages/Resources';
 import Dashboard from './pages/Dashboard';
 import Updates from './pages/Updates';
+import Signup from './components/Signup';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/resources' Component={Resources}/>
         <Route path='/dashboard' Component={Dashboard}/>
         <Route path='/updates' Component={Updates}/>
+        <Route path='/signup' Component={Signup}/>
       </Routes>
     </Router>
    </div>
