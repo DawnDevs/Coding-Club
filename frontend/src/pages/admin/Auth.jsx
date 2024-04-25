@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const UploadResource = () => {
+const Auth = () => {
   const [admin, setAdmin] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -72,4 +72,4 @@ const UploadResource = () => {
   );
 };
 
-export default UploadResource;
+export default Auth;
