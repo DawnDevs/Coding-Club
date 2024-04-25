@@ -23,8 +23,8 @@ const Admin = () => {
         </button>
           </div>
       <div className="grid grid-cols-1 mx-5 my-10 md:grid-cols-6 md:mx-2 gap-6">
-        <Link to="/admin/uploadproject" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
-          Upload Project
+        <Link to="/admin/uploadResources" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
+          Upload Resource
         </Link>
         <Link to="/admin/uploadcertificate" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
           Upload Certificate

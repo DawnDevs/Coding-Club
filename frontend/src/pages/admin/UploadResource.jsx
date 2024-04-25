@@ -17,37 +17,35 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-const UploadProject = () => {
-  const [image, setImage] = useState(null);
+const UploadResources = () => {
+  const [videoFile, setVideoFile] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [githubLink, setGithubLink] = useState('');
-  const [deployment, setDeployment] = useState('');
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setImage(file);
+      setVideoFile(file);
     }
   };
 
   const handleUpload = async () => {
     try {
       setError('');
-      if (!image || !title || !description || !githubLink) {
+      if (!videoFile || !title || !description) {
         throw new Error("All fields are required");
       }
 
       setUploading(true);
 
-      const storageRef = ref(storage, `images/${image.name}`);
-      await uploadBytes(storageRef, image);
-      const imageUrl = await getDownloadURL(storageRef);
-      console.log("Image uploaded successfully. URL:", imageUrl);
+      const storageRef = ref(storage, `videos/${videoFile.name}`);
+      await uploadBytes(storageRef, videoFile);
+      const videoUrl = await getDownloadURL(storageRef);
+      console.log("Video uploaded successfully. URL:", videoUrl);
 
-      const response = await fetch('https://localhost:5000/api/upload', {
+      const response = await fetch('http://localhost:5000/api/upload', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -55,9 +53,7 @@ const UploadProject = () => {
         body: JSON.stringify({
           title,
           description,
-          githubLink,
-          imageUrl,
-          deployment
+          videoUrl
         })
       });
 
@@ -76,12 +72,10 @@ const UploadProject = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">Upload Image</h2>
-      <input type="file" onChange={handleFileChange} />
+      <h2 className="text-2xl font-semibold mb-4">Upload Project</h2>
+      <input type="file" accept="video/*" onChange={handleFileChange} />
       <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
-      <input type="text" placeholder="GitHub Link" value={githubLink} onChange={(e) => setGithubLink(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
-      <input type="text" placeholder="Deployment Link (Optional)" value={deployment} onChange={(e) => setDeployment(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <button onClick={handleUpload} disabled={uploading} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4">
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
@@ -90,4 +84,4 @@ const UploadProject = () => {
   );
 };
 
-export default UploadProject;
+export default UploadResources;
