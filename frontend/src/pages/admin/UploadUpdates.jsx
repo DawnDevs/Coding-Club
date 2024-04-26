@@ -15,35 +15,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-const UploadResources = () => {
-  const [videoFile, setVideoFile] = useState(null);
+const UploadUpdates = () => {
+  const [imageFile, setImageFile] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [link, setLink] = useState('');
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setVideoFile(file);
+      setImageFile(file);
     }
   };
 
   const handleUpload = async () => {
     try {
       setError('');
-      if (!videoFile || !title || !description) {
+      if (!imageFile || !title || !description) {
         throw new Error("All fields are required");
       }
 
       setUploading(true);
 
-      const storageRef = ref(storage, `videos/${videoFile.name}`);
-      await uploadBytes(storageRef, videoFile);
-      const videoUrl = await getDownloadURL(storageRef);
-      console.log("Video uploaded successfully. URL:", videoUrl);
+      const storageRef = ref(storage, `images/${imageFile.name}`);
+      await uploadBytes(storageRef, imageFile);
+      const imageUrl = await getDownloadURL(storageRef);
+      console.log("Image uploaded successfully. URL:", imageUrl);
 
-      const response = await fetch('http://localhost:5000/api/upload', {
+      const response = await fetch('http://localhost:5000/api/updates', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -51,7 +52,8 @@ const UploadResources = () => {
         body: JSON.stringify({
           title,
           description,
-          videoUrl
+          imageUrl,
+          link
         })
       });
 
@@ -71,9 +73,10 @@ const UploadResources = () => {
   return (
     <div className="container mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Upload Project</h2>
-      <input type="file" accept="video/*" onChange={handleFileChange} />
+      <input type="file" accept="image/*" onChange={handleFileChange} />
       <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
+      <input type="text" placeholder="Optional Link" value={link} onChange={(e) => setLink(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <button onClick={handleUpload} disabled={uploading} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4">
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
@@ -82,4 +85,4 @@ const UploadResources = () => {
   );
 };
 
-export default UploadResources;
+export default UploadUpdates;
