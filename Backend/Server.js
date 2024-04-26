@@ -35,6 +35,15 @@ const ResourcesSchema = new mongoose.Schema({
 });
 const Resources = mongoose.model('Resources', ResourcesSchema);
 
+const uploadSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  imageUrl: { type: String, required: true },
+  link: { type: String, default: '' }
+});
+
+const upload = mongoose.model('Uploads', uploadSchema);
+
 app.get("/", async (req, res) => {
   res.json({ message: "API's are working!" });
 })
@@ -103,6 +112,37 @@ app.get('/api/resources', async (req, res) => {
     res.status(500).send('Internal server error.');
   }
 });
+
+app.post('/api/updates', async (req, res) => {
+  try {
+    const { title, description, imageUrl } = req.body;
+    console.log(title,description,imageUrl)
+
+    const newUpload = new upload({
+      title,
+      description,
+      imageUrl,
+      link: req.body.link || '' 
+    });
+
+    await newUpload.save();
+    res.status(201).json({ message: 'Upload successful' });
+  } catch (error) {
+    console.error('Error uploading:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+app.get('/api/newupdates', async (req, res) => {
+  try {
+    const updates = await upload.find();
+    res.json(updates);
+  } catch (error) {
+    console.error('Error fetching updates:', error);
+    res.status(500).send('Internal server error.');
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
