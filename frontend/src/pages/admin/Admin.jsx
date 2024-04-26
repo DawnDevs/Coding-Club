@@ -26,7 +26,7 @@ const Admin = () => {
         <Link to="/admin/uploadResources" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
           Upload Resource
         </Link>
-        <Link to="/admin/uploadcertificate" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
+        <Link to="/admin/uploadupdates" className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
           Upload Certificate
         </Link>
         <Link to="/admin/uploadtestimonials" className="bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-4 rounded-lg shadow-md block text-center">
