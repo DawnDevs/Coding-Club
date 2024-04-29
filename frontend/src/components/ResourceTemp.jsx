@@ -26,7 +26,7 @@ const CardTemplate = () => {
       {resources.map((resource) => (
         <div
           key={resource._id}
-          className="card mt-6 rounded-lg transition-transform ease-in-out hover:scale-105 hover:shadow-xl border-2 border-black w-[90%] md:w-[80%] lg:w-[70%] "
+          className="card bg-cyan-100 mt-6 rounded-lg transition-transform ease-in-out hover:scale-105 shadow-2xl w-[90%] md:w-[80%] lg:w-[70%] "
         >
           <div className="p-6">
             <div className="flex justify-center">
