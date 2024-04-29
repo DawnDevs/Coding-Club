@@ -10,11 +10,11 @@ const Home = () => {
     <div className=" gradient-container bg-cover h-screen bricolage-font">
       <div className=" pt-5">
         <Navbar />
-        <div className=" pt-12 md:pt-24 md:flex space-x-2 lg:space-x-20 mx-2 lg:mx-[18%] items-center">
+        <div className=" pt-12 md:pt-24 lg:flex space-x-2 lg:space-x-20 mx-2 md:mx-[10%] lg:mx-[18%] items-center">
             <div className=" flex justify-center w-full">
               <img className=" h-56 md:h-72 lg:h-96" src={HomePic} alt="" />
             </div>
-            <div className=" pt-6 md:pt-0 items-center">
+            <div className=" pt-6 lg:pt-0 items-center">
               <div className=" gradient-container1 rounded-lg shadow-xl">
                 <p className=" text-2xl md:text-4xl font-semibold flex justify-center p-4"> ⪻Anonymous /⪼</p>
               </div>
