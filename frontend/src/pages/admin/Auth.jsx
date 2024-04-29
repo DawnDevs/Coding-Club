@@ -42,7 +42,7 @@ const Auth = () => {
   };
 
   return (
-    <div className=" p-6 min-h-screen  flex items-center justify-center bricolage-font">
+    <div className=" p-6 bg-cyan-100 min-h-screen  flex items-center justify-center bricolage-font">
       <div className="gradient-container p-8 rounded shadow-md w-fit md:[10%] lg:mx-[15%]">
         <h2 className="text-4xl mb-4 text-center font-bold">Admin Login</h2>
         <div className=" md:flex justify-between px-0 md:px-6 lg:px-24 items-center">
