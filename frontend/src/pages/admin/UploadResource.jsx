@@ -76,36 +76,43 @@ const UploadResources = () => {
           &lt; Back
         </Link>
       </div>
-      <div className=" mt-10 bg-white rounded mx-2 md:mx-[6%] lg:mx-[20%]">
+      <div className=" mt-10 bg-cyan-100 shadow-2xl rounded mx-2 md:mx-[6%] lg:mx-[20%]">
         <div className=" p-10">
-        <h2 className="text-4xl flex justify-center font-semibold mb-4">Upload Resource</h2>
-        <div className=" pt-6">
-        <input className="p-2 border-2 border-gray-300 rounded bg-white" type="file" accept="video/*" onChange={handleFileChange} />
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4"
-        />
-        <textarea
-          placeholder="One line Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4"
-        />
-        <div className=" pt-3 flex justify-center">
-        <button
-          onClick={handleUpload}
-          disabled={uploading}
-          className="border-2 border-gray-900 shadow-lg p-2 px-4 rounded w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400 hover:scale-95"
-        >
-          {uploading ? "Uploading..." : "Upload"}
-        </button>
+          <h2 className="text-4xl flex justify-center font-semibold mb-4">
+            Upload Resource
+          </h2>
+          <div className=" pt-6">
+            <input
+              className="p-2 border-2 border-gray-300 rounded bg-white"
+              type="file"
+              accept="video/*"
+              onChange={handleFileChange}
+            />
+            <input
+              type="text"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4"
+            />
+            <textarea
+              placeholder="One line Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4"
+            />
+            <div className=" pt-3 flex justify-center">
+              <button
+                onClick={handleUpload}
+                disabled={uploading}
+                className="border-2 border-gray-900 shadow-lg p-2 px-4 rounded w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400 hover:scale-95"
+              >
+                {uploading ? "Uploading..." : "Upload"}
+              </button>
+            </div>
+            {error && <p className="text-red-500 mt-2">{error}</p>}
+          </div>
         </div>
-        {error && <p className="text-red-500 mt-2">{error}</p>}
-      </div>
-      </div>
       </div>
     </div>
   );
