@@ -83,7 +83,7 @@ const UploadUpdates = () => {
       <div className=" mt-10 bg-cyan-100 shadow-2xl rounded mx-2 md:mx-[6%] lg:mx-[20%]">
         <div className=" p-10">
           <h2 className="text-2xl font-semibold mb-4">Upload Updates</h2>
-          <input className="p-2 border-2 border-gray-300 rounded bg-white" type="file" accept="image/*" onChange={handleFileChange} />
+          <input className="p-2 md:border md:border-gray-300 rounded md:bg-white" type="file" accept="image/*" onChange={handleFileChange} />
           <input
             type="text"
             placeholder="Title"
