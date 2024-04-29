@@ -42,17 +42,17 @@ const Auth = () => {
   };
 
   return (
-    <div className="bg-cyan-100 min-h-screen flex items-center justify-center bricolage-font">
-      <div className="gradient-container p-8 rounded shadow-md w-fit mx-[15%]">
+    <div className=" p-6 bg-cyan-100 min-h-screen  flex items-center justify-center bricolage-font">
+      <div className="gradient-container p-8 rounded shadow-md w-fit md:[10%] lg:mx-[15%]">
         <h2 className="text-4xl mb-4 text-center font-bold">Admin Login</h2>
-        <div className=" flex justify-between px-24 items-center">
+        <div className=" md:flex justify-between px-0 md:px-6 lg:px-24 items-center">
           <div className="">
             <img className=" md:h-80 lg:h-96 w-auto" src={AdminPic} alt="" />
           </div>
           <div className="">
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="admin" className="block text-black">
+                <label htmlFor="admin" className="flex justify-start text-black">
                   Admin:
                 </label>
                 <input
@@ -60,7 +60,7 @@ const Auth = () => {
                   id="admin"
                   value={admin}
                   onChange={handleAdminChange}
-                  className="form-input bg-transparent border-2 p-2 rounded border-gray-900 mt-1 block w-72"
+                  className="form-input bg-transparent border-2 p-2 rounded border-gray-900 mt-1 w-full md:w-72"
                 />
               </div>
               <div className="mb-4">
@@ -72,13 +72,13 @@ const Auth = () => {
                   id="password"
                   value={password}
                   onChange={handlePasswordChange}
-                  className="form-input bg-transparent border-2 p-2 rounded border-gray-900 mt-1 block w-72"
+                  className="form-input bg-transparent border-2 p-2 rounded border-gray-900 mt-1 w-full md:w-72"
                 />
               </div>
               <div className=" flex justify-center">
               <button
                 type="submit"
-                className="border-2 border-gray-900 shadow-lg p-2 px-4 rounded w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400 hover:scale-95"
+                className="border-2 border-gray-900 shadow-md hover:shadow-2xl p-2 px-4 rounded w-fit font-semibold bg-gradient-to-tr from-cyan-400 via-cyan-200 to-cyan-100 hover:from-cyan-100 hover:via-cyan-200 hover:to-cyan-400 hover:scale-95"
               >
                 Login
               </button>
