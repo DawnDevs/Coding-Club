@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import Navbar from "../components/Navbar";
 
 const Updates = () => {
@@ -20,16 +21,24 @@ const Updates = () => {
     };
 
     fetchData();
+
+    const interval = setInterval(() => {
+      setUpdates((prevUpdates) =>
+        prevUpdates.map((update) => ({ ...update }))
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const checkForDeletedPosts = (data) => {
     const currentTime = new Date();
-    const updatedUpdates = data.filter(update => {
+    const updatedUpdates = data.filter((update) => {
       const postTime = new Date(update.dateTime);
       return postTime <= currentTime;
     });
 
-    updatedUpdates.forEach(update => deletePost(update._id));
+    updatedUpdates.forEach((update) => deletePost(update._id));
   };
 
   const deletePost = async (_id) => {
@@ -43,12 +52,28 @@ const Updates = () => {
       }
       console.log(`Post with ID ${_id} deleted successfully.`);
       
-      // Update the state after deletion
       setUpdates(prevUpdates => prevUpdates.filter(update => update._id !== _id));
     } catch (error) {
       console.error("Error deleting post:", error);
     }
   };
+
+  const getRemainingTime = (dateTime) => {
+    const eventTime = moment(dateTime);
+    const currentTime = moment();
+    const duration = moment.duration(eventTime.diff(currentTime));
+    const days = Math.floor(duration.asDays());
+    const hours = duration.hours();
+    const minutes = duration.minutes();
+    const seconds = duration.seconds();
+    return `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+  };
+
+  const getTimeAgo = () => {
+    return moment().startOf('hour').fromNow('minute');
+};
+
+
 
   return (
     <div>
@@ -68,7 +93,13 @@ const Updates = () => {
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">{update.title}</h2>
                 <p className="text-gray-700 mb-2">{update.description}</p>
-                <p className="text-gray-500 text-sm mb-4">
+                <p className="text-gray-500 text-sm mb-2">
+                  Countdown: {getRemainingTime(update.dateTime)} left
+                </p>
+                {/* <p className="text-gray-500 text-sm mb-2">
+                  Time : {getTimeAgo(update.dateTime)}
+                </p> */}
+                <p className="text-gray-500 text-sm mb-2">
                   Date: {new Date(update.dateTime).toLocaleDateString()} | Time:{" "}
                   {new Date(update.dateTime).toLocaleTimeString()}
                 </p>
