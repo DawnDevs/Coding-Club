@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import AdminPic from '../admin/assets/admin.png'
 
 const Auth = () => {
   const [admin, setAdmin] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const handleAdminChange = (e) => {
     setAdmin(e.target.value);
