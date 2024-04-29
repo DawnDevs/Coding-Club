@@ -20,7 +20,6 @@ db.once('open', () => {
   console.log('Connected to MongoDB database');
 });
 
-
 const userSchema = new mongoose.Schema({
   admin: String,
   password: String
@@ -39,7 +38,8 @@ const uploadSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   imageUrl: { type: String, required: true },
-  link: { type: String, default: '' }
+  link: { type: String, default: '' },
+  dateTime: { type: Date, default: Date.now }
 });
 
 const upload = mongoose.model('Uploads', uploadSchema);
@@ -66,13 +66,11 @@ app.post('/api/register', async (req, res) => {
 
 app.post('/api/login', async (req, res) => {
   const { admin, password } = req.body;
-
   try {
-    const user = await User.findOne({ admin });
+    const user = await User.findOne({admin});
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-
     const isPasswordValid = bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid password' });
@@ -115,14 +113,13 @@ app.get('/api/resources', async (req, res) => {
 
 app.post('/api/updates', async (req, res) => {
   try {
-    const { title, description, imageUrl } = req.body;
-    console.log(title,description,imageUrl)
-
+    const { title, description, imageUrl, link, dateTime } = req.body;
     const newUpload = new upload({
       title,
       description,
       imageUrl,
-      link: req.body.link || '' 
+      link: link || '',
+      dateTime // Store the provided date and time
     });
 
     await newUpload.save();
@@ -143,6 +140,17 @@ app.get('/api/newupdates', async (req, res) => {
   }
 });
 
+app.delete("/api/deleteupdates/:id", async (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log(postId)
+    await upload.findByIdAndDelete(postId);
+    res.status(204).send();
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

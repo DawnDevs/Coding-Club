@@ -38,7 +38,7 @@ const Admin = () => {
             Upload Resource
           </Link>
           <Link
-            to="/admin/uploadcertificate"
+            to="/admin/uploadupdates"
             className="text-white font-semibold px-6 py-4 rounded-lg shadow-md hover:shadow-2xl hover:scale-105 block text-center"
             style={{ backgroundColor: "#18848e" }}
           >

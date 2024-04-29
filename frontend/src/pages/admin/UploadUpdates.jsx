@@ -20,6 +20,7 @@ const UploadUpdates = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [link, setLink] = useState('');
+  const [dateTime, setDateTime] = useState('');
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
 
@@ -33,7 +34,7 @@ const UploadUpdates = () => {
   const handleUpload = async () => {
     try {
       setError('');
-      if (!imageFile || !title || !description) {
+      if (!imageFile || !title || !description || !dateTime) {
         throw new Error("All fields are required");
       }
 
@@ -53,7 +54,8 @@ const UploadUpdates = () => {
           title,
           description,
           imageUrl,
-          link
+          link,
+          dateTime
         })
       });
 
@@ -77,6 +79,7 @@ const UploadUpdates = () => {
       <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <input type="text" placeholder="Optional Link" value={link} onChange={(e) => setLink(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
+      <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} className="block w-full border border-gray-300 rounded-md px-4 py-2 mt-4" />
       <button onClick={handleUpload} disabled={uploading} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4">
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
