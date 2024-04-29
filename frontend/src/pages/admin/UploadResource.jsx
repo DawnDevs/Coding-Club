@@ -83,7 +83,7 @@ const UploadResources = () => {
           </h2>
           <div className=" pt-6">
             <input
-              className="p-2 border-2 border-gray-300 rounded bg-white"
+              className="p-2 md:border md:border-gray-300 rounded md:bg-white"
               type="file"
               accept="video/*"
               onChange={handleFileChange}
