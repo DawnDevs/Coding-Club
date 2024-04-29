@@ -7,6 +7,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
 
+
   const handleMenuClick = (menu) => {
     setActiveMenu(menu === activeMenu ? null : menu);
   };
@@ -23,6 +24,7 @@ const Navbar = () => {
   const handleCloseClick = () => {
     setIsOpen(false); // Close the sidebar when the close button is clicked
   };
+  
 
   return (
     <div className="bg-transparent rounded-full border border-gray-900 mx-1 md:mx-10 lg:mx-32 flex-wrap shadow-xl bricolage-font">
@@ -64,7 +66,6 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {/* <li><Link to="#about-section" className='py-1 px-1 mx-1 md:py-3 md:px-3 md:mx-3 flex-wrap hover:bg-gradient-to-t from-pink-500 via-red-500 to-yellow-500 hover:rounded-md cursor-pointer hover:text-black'>About Me</Link></li> */}
             <li>
               <Link
                 to="/experience"
@@ -89,7 +90,7 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
-            <div className="px-4">
+            <div className="">
               <Link
                 activeClassName="active"
                 onMouseEnter={() => handleMenuClick("signup")}
@@ -107,49 +108,40 @@ const Navbar = () => {
         {/* Desktop */}
 
         <ul className="hidden lg:flex justify-center font-medium text-base space-x-6 ">
-          <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
             <Link
               to="/"
-              className={" px-2 `menu-item`"}
+              className={" px-4 p-2 hover:cursor-pointer hover:shadow-xl border border-gray-400 rounded-full transition-transform hover:scale-95 ease-in-out `menu-item` "}
               activeClassName="active"
               onMouseEnter={() => handleMenuClick("home")}
             >
               Home
             </Link>
-          </li>
-          <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
             <Link
               to="/resources"
-              className={"px-2 `menu-item`"}
+              className={"px-4 p-2 hover:cursor-pointer hover:shadow-xl border border-gray-400 rounded-full transition-transform hover:scale-95 ease-in-out `menu-item`"}
               activeClassName="active"
               onMouseEnter={() => handleMenuClick("resources")}
             >
               Resources
             </Link>
-          </li>
-          <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
             <Link
               to="/dashboard"
-              className={"px-2 `menu-item`"}
+              className={"px-4 p-2 hover:cursor-pointer hover:shadow-xl border border-gray-400 rounded-full transition-transform hover:scale-95 ease-in-out `menu-item`"}
               activeClassName="active"
               onMouseEnter={() => handleMenuClick("dashboard")}
             >
               Dashboard
             </Link>
-          </li>
-          <li className="hover:cursor-pointer hover:shadow-xl border border-gray-400 p-2 rounded-full transition-transform hover:scale-95 ease-in-out">
             <Link
               to="/updates"
-              className={"px-2 `menu-item`"}
+              className={"px-4 p-2 hover:cursor-pointer hover:shadow-xl border border-gray-400 rounded-full transition-transform hover:scale-95 ease-in-out `menu-item`"}
               activeClassName="active"
               onMouseEnter={() => handleMenuClick("updates")}
             >
               Updates
             </Link>
-          </li>
         </ul>
-        <div className="hidden lg:flex hover:cursor-pointer transition-transform hover:scale-95 ">
-          <Link
+          <Link className="hidden lg:flex hover:cursor-pointer transition-transform hover:scale-95"
             activeClassName="active"
             onMouseEnter={() => handleMenuClick("signup")}
           >
@@ -160,7 +152,6 @@ const Navbar = () => {
               Sign up 🡥
             </Connect>
           </Link>
-        </div>
       </div>
     </div>
   );
