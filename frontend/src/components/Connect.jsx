@@ -40,6 +40,28 @@ function Connect({ setUserEmail }) {
     }
   };
 
+  useEffect(() => {
+    const addStudent = async (user) => {
+      try {
+        const response = await fetch('http://localhost:5000/api/addstudent', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: user.email, name: user.displayName })
+        });
+        const data = await response.json();
+        console.log(data); // Log response from backend (optional)
+      } catch (error) {
+        console.error('Error adding student:', error.message);
+      }
+    };
+
+    if (user) {
+      addStudent(user);
+    }
+  }, [user]);
+
   const disconnectWallet = async () => {
     try {
       await signOut(auth);

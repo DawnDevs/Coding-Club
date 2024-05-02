@@ -9,6 +9,7 @@ import Admin from './pages/admin/Admin';
 import Auth from './pages/admin/Auth';
 import UploadResources from './pages/admin/UploadResource';
 import UploadUpdates from './pages/admin/UploadUpdates';
+import Attendance from './pages/admin/Attendance';
 
 function App() {
   const isLoggedIn = window.localStorage.getItem('authenticated')
@@ -26,6 +27,7 @@ function App() {
         <Route path='/admin' element={isLoggedIn === 'true'? <Admin />:<Auth />} />
         <Route path='/admin/uploadResources' element={isLoggedIn === 'true'? <UploadResources />:<Auth />} />
         <Route path='/admin/uploadupdates' element={isLoggedIn === 'true'? <UploadUpdates />:<Auth />} />
+        <Route path='/admin/attendance' element={isLoggedIn === 'true'? <Attendance />:<Auth />} />
       </Routes>
     </Router>
    </div>

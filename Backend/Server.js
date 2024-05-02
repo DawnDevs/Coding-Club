@@ -44,6 +44,23 @@ const uploadSchema = new mongoose.Schema({
 
 const upload = mongoose.model('Uploads', uploadSchema);
 
+const studentSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  dateTime: { type: Date, default: Date.now }
+});
+
+const Student = mongoose.model('Students', studentSchema);
+
+const attendanceSchema = new mongoose.Schema({
+  email: { type: String, required: true },
+  date: { type: Date, default: Date.now },
+  present: { type: Boolean, default: false }
+});
+
+const Attendance = mongoose.model('Attendance', attendanceSchema);
+
+
 app.get("/", async (req, res) => {
   res.json({ message: "API's are working!" });
 })
@@ -151,6 +168,142 @@ app.delete("/api/deleteupdates/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+app.post("/api/addstudent", async (req, res) => {
+  try {
+    const { email, name } = req.body;
+    const newStudent = new Student({
+      email,
+      name
+    });
+
+    await newStudent.save();
+
+    const newAttendance = new Attendance({
+      email,
+      present: false
+    });
+    await newAttendance.save();
+
+    res.status(201).json({ message: "Student added successfully" });
+  } catch (error) {
+    console.error("Error adding student:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
+app.get('/api/getstudents', async (req, res) => {
+  try {
+    const students = await Student.find();
+    res.json(students);
+  } catch (error) {
+    console.error('Error fetching students:', error);
+    res.status(500).send('Internal server error.');
+  }
+});
+
+app.post('/api/attendance', async (req, res) => {
+  try {
+    const { email, present } = req.body;
+    
+    const existingAttendance = await Attendance.findOne({ email, date: { $gte: new Date().setHours(0, 0, 0, 0) } });
+    
+    if (existingAttendance) {
+      if (existingAttendance.present && !present) {
+        await Attendance.findByIdAndUpdate(existingAttendance._id, { present: false });
+        return res.status(200).json({ message: 'Attendance updated to absent' });
+      }
+      else if (!existingAttendance.present && present) {
+        await Attendance.findByIdAndUpdate(existingAttendance._id, { present: true });
+        return res.status(200).json({ message: 'Attendance updated to present' });
+      }
+      else {
+        return res.status(400).json({ error: 'Attendance status is not changed' });
+      }
+    } else {
+      const newAttendance = new Attendance({
+        email,
+        present
+      });
+      await newAttendance.save();
+      res.status(201).json({ message: 'Attendance recorded successfully' });
+    }
+  } catch (error) {
+    console.error('Error recording attendance:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+app.get('/api/attendance/stats/:email', async (req, res) => {
+  try {
+    const { email } = req.params;
+
+    // Get the current date
+    const currentDate = new Date();
+    // Set the hours, minutes, seconds, and milliseconds to 0 to get the start of the day
+    currentDate.setHours(0, 0, 0, 0);
+
+    // Find the attendance record for the specified email and the current date
+    const currentAttendance = await Attendance.findOne({ email, date: { $gte: currentDate } });
+
+    // Count the total days and present days for the student's email
+    const totalDays = await Attendance.countDocuments({ email });
+    const presentDays = await Attendance.countDocuments({ email, present: true });
+    const absentDays = totalDays - presentDays;
+
+    // Prepare the response object
+    const response = {
+      totalDays,
+      presentDays,
+      absentDays,
+      currentAttendancePresent: currentAttendance ? currentAttendance.present : null
+    };
+
+    res.json(response);
+  } catch (error) {
+    console.error('Error fetching attendance statistics:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+app.get('/api/attendance/stats', async (req, res) => {
+  try {
+    const attendanceStats = await Attendance.aggregate([
+      {
+        $group: {
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } }, // Extract date part only
+          totalDays: { $sum: 1 },
+          totalPresent: { $sum: { $cond: [{ $eq: ['$present', true] }, 1, 0] } }
+        }
+      },
+      {
+        $group: {
+          _id: null, // Group without any specific field
+          distinctCount: { $addToSet: '$_id' }, // Collect distinct dates
+          detailedStats: { $push: '$$ROOT' } // Collect detailed statistics for each date
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          distinctCount: { $size: '$distinctCount' },
+          detailedStats: 1
+        }
+      }
+    ]);
+
+    res.json(attendanceStats[0]); // Return the first document (should be the only one)
+  } catch (error) {
+    console.error('Error fetching attendance statistics:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
