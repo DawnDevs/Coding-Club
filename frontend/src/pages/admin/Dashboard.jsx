@@ -36,12 +36,13 @@ const Dashboard = () => {
           <p className=" text-2xl font-semibold">Admin Dashboard</p>
           <div className=" pt-5">
             <p className="  text-slate-500">MARK</p>
-            <div className=" flex space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-              <img className=" h-6" src={AttendancePic} alt="" />
+            <div className="  items-center hover:bg-slate-300 px-4 py-2 rounded">
               <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={() => handleComponentClick("Attendance")}
               >
+              <img className=" h-6" src={AttendancePic} alt="" />
+
                 Attendance Sheet
               </button>
             </div>
@@ -49,21 +50,21 @@ const Dashboard = () => {
 
           <div className=" pt-2">
             <p className="  text-slate-500">ANALYZE</p>
-            <div className=" flex space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-              <img className=" h-6" src={DashboardPic} alt="" />
+            <div className=" items-center hover:bg-slate-300 px-4 py-2 rounded">
               <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={() => handleComponentClick("CurrentDayAtt")}
               >
+                <img className=" h-6" src={DashboardPic} alt="" />
                 Dashboard
               </button>
             </div>
             <div className=" flex space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-              <img className=" h-6" src={ReportPic} alt="" />
               <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={() => handleComponentClick("Reports")}
               >
+                <img className=" h-6" src={ReportPic} alt="" />
                 Report
               </button>
             </div>
@@ -72,39 +73,39 @@ const Dashboard = () => {
           <div className=" pt-2">
             <p className="  text-slate-500">UPLOADS</p>
             <div className=" flex space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-              <img className=" h-6" src={ReportPic} alt="" />
               <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={() => handleComponentClick("Resources")}
               >
+                <img className=" h-6" src={ReportPic} alt="" />
                 Resources
               </button>
             </div>
             <div className=" flex space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-              <img className=" h-6" src={DashboardPic} alt="" />
               <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={() => handleComponentClick("Updates")}
               >
+                <img className=" h-6" src={DashboardPic} alt="" />
                 Updates
               </button>
             </div>
             <div className=" flex space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-              <img className=" h-6" src={ReportPic} alt="" />
               <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={() => handleComponentClick("Testimonials")}
               >
+                <img className=" h-6" src={ReportPic} alt="" />
                 Testimonials
               </button>
             </div>
           </div>
           <div className=" flex mt-4 space-x-2 items-center hover:bg-slate-300 px-4 py-2 rounded">
-            <img className=" h-6" src={Logout} alt="" />
             <button
-                className="  "
+                className=" flex gap-2 "
                 onClick={handleLogout}
             >
+                <img className=" h-6" src={Logout} alt="" />
                 Logout
             </button>
           </div>
