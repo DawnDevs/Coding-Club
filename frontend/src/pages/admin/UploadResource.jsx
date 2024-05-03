@@ -70,11 +70,11 @@ const UploadResources = () => {
   };
 
   return (
-    <div className="gradient-container h-screen bricolage-font mx-auto">
-      <div className=" p-4">
-        <Link className=" underline text-2xl" to="/admin">
+    <div className=" h-screen bricolage-font mx-auto">
+      <div className=" p-4 ">
+        {/* <Link className=" underline text-2xl" to="/admin">
           &lt; Back
-        </Link>
+        </Link> */}
       </div>
       <div className=" mt-10 bg-cyan-100 shadow-2xl rounded mx-2 md:mx-[6%] lg:mx-[20%]">
         <div className=" p-10">

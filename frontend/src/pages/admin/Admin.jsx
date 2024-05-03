@@ -54,9 +54,16 @@ const Admin = () => {
           <Link
             to="/admin/attendance"
             className="text-white font-semibold px-6 py-4 rounded-lg shadow-md hover:shadow-2xl hover:scale-105 block text-center"
-            style={{ backgroundColor: "#1a98a6" }}
+            style={{ backgroundColor: "#1dadc0" }}
           >
             Attendance
+          </Link>
+          <Link
+            to="/admin/admindashboard"
+            className="text-white font-semibold px-6 py-4 rounded-lg shadow-md hover:shadow-2xl hover:scale-105 block text-center"
+            style={{ backgroundColor: "#1dadc0" }}
+          >
+            Dashboard
           </Link>
         </div>
         </div>

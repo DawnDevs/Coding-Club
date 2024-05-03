@@ -74,12 +74,7 @@ const UploadUpdates = () => {
   };
 
   return (
-    <div className="gradient-container h-screen bricolage-font mx-auto">
-      <div className=" p-4">
-        <Link className=" underline text-2xl" to="/admin">
-          &lt; Back
-        </Link>
-      </div>
+    <div className=" h-screen p-4 bricolage-font mx-auto">
       <div className=" mt-10 bg-cyan-100 shadow-2xl rounded mx-2 md:mx-[6%] lg:mx-[20%]">
         <div className=" p-10">
           <h2 className="text-2xl font-semibold mb-4">Upload Updates</h2>

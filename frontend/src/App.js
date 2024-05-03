@@ -10,6 +10,7 @@ import Auth from './pages/admin/Auth';
 import UploadResources from './pages/admin/UploadResource';
 import UploadUpdates from './pages/admin/UploadUpdates';
 import Attendance from './pages/admin/Attendance';
+import DashboardAdmin from './pages/admin/Dashboard';
 
 function App() {
   const isLoggedIn = window.localStorage.getItem('authenticated')
@@ -28,6 +29,7 @@ function App() {
         <Route path='/admin/uploadResources' element={isLoggedIn === 'true'? <UploadResources />:<Auth />} />
         <Route path='/admin/uploadupdates' element={isLoggedIn === 'true'? <UploadUpdates />:<Auth />} />
         <Route path='/admin/attendance' element={isLoggedIn === 'true'? <Attendance />:<Auth />} />
+        <Route path='/admin/admindashboard' element={isLoggedIn === 'true'? <DashboardAdmin />:<Auth />} />
       </Routes>
     </Router>
    </div>
