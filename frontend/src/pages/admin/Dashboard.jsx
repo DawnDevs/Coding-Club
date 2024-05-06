@@ -5,7 +5,8 @@ import AttendancePic from "./assets/attendance.png";
 import DashboardPic from "./assets/dashboard.png";
 import ReportPic from "./assets/report.png";
 import Logout from './assets/logout.png'
-import Attendance from "./components/Attendance";
+import Attendance from "./components/AttendanceCard";
+import AttendanceSheet from "./AttendanceSheet";
 import CurrentDayAtt from "./components/CurrentDayAtt";
 import Reports from "./components/Reports";
 import Resources from "./UploadResource";
@@ -39,7 +40,7 @@ const Dashboard = () => {
             <div className="  items-center hover:bg-slate-300 px-4 py-2 rounded">
               <button
                 className=" flex gap-2 "
-                onClick={() => handleComponentClick("Attendance")}
+                onClick={() => handleComponentClick("AttendanceSheet")}
               >
               <img className=" h-6" src={AttendancePic} alt="" />
 
@@ -112,7 +113,8 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="flex-grow">
-        {selectedComponent === "Attendance" && <Attendance />}
+        {/* {selectedComponent === "Attendance" && <Attendance />} */}
+        {selectedComponent === "AttendanceSheet" && <AttendanceSheet />}
         {selectedComponent === "CurrentDayAtt" && <CurrentDayAtt />}
         {selectedComponent === "Reports" && <Reports />}
         {selectedComponent === "Resources" && <Resources />}
